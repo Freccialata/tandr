@@ -297,3 +297,4 @@ async function importa(e) {
 
 render();
 navigator.storage?.persist?.();
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");
