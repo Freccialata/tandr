@@ -1,0 +1,12 @@
+{
+  "tasks": {
+    "dev": "deno run --allow-net --allow-read jsr:@std/http@1/file-server --port 8000 .",
+    "test": "deno test",
+    "map": "deno run --allow-net=cdn.jsdelivr.net --allow-write=data tools/build-map.ts",
+    "release": "deno run --allow-read --allow-write=sw.js tools/release.ts"
+  },
+  "imports": { "d3-geo": "npm:d3-geo@3" },
+  "fmt": { "lineWidth": 120, "exclude": ["data/", "app.css"] },
+  "lint": { "rules": { "exclude": ["no-explicit-any"] } },
+  "exclude": ["mockups/", "docs/"]
+}
