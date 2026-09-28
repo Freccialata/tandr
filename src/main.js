@@ -283,6 +283,7 @@ async function importa(e) {
   const file = e.target.files[0];
   e.target.value = "";
   if (!file) return;
+  if (raw) return alert(t("err.importaBloccato")); // sostituirebbe i dati illeggibili non ancora esportati
   const r = store.analizza(await file.text());
   if (r.err) return alert(t(r.err.e, r.err));
   if (

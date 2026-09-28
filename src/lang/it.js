@@ -71,4 +71,6 @@ export default {
   "err.corrotti":
     "I dati salvati non sono leggibili e non li ho toccati. Esportali per conservarli: dopo potrai ricominciare.",
   "err.condividi": "Esportazione non riuscita: {m}",
+  "err.importaBloccato":
+    "Prima esporta i dati illeggibili con il pulsante nell'avviso: l'importazione li sostituirebbe.",
 };

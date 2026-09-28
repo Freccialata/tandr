@@ -1,5 +1,5 @@
 // Service worker: tutto in cache all'installazione, poi prima la cache e poi la rete.
-const V = "3dea2b56"; // aggiornato da deno task release
+const V = "4bdd47a7"; // aggiornato da deno task release
 const FILES = [
   "./",
   "index.html",

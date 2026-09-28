@@ -18,7 +18,7 @@ export function mappa(tocca) {
     const h = w * rapporto();
     vb = [lim(cx, 0, W) - w / 2, lim(cy, 0, H) - h / 2, w, h];
     svg.setAttribute("viewBox", vb.join(" "));
-    for (const c of svg.querySelectorAll("circle")) c.setAttribute("r", w / 250);
+    for (const c of svg.querySelectorAll("circle")) c.setAttribute("r", w / 120);
   };
   const riquadro = ([x0, y0, x1, y1]) =>
     imposta((x0 + x1) / 2, (y0 + y1) / 2, Math.max(x1 - x0, (y1 - y0) / rapporto()) * 1.3 + W / 25);

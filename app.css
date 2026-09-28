@@ -17,7 +17,7 @@ header { position: sticky; top: 0; z-index: 1; display: flex; align-items: cente
   padding: calc(env(safe-area-inset-top) + 8px) 16px 8px 20px; }
 header h1 { font-size: 26px; font-weight: 700; letter-spacing: -.02em; margin-right: auto; }
 .btn { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font-size: 22px; line-height: 1; color: var(--mut); }
-.btn.add { background: var(--ink); color: var(--bg); transform: scale(.8); }
+.btn.add { background: radial-gradient(circle, var(--ink) 16.5px, transparent 17px); color: var(--bg); } /* cerchio da 34px, area da 44px */
 main { flex: 1; padding: 0 20px 24px; }
 nav { position: sticky; bottom: 0; display: flex; background: var(--surf); border-top: 1px solid var(--line);
   padding: 4px 0 calc(env(safe-area-inset-bottom) + 4px); }
@@ -25,7 +25,7 @@ nav button { flex: 1; min-height: 48px; text-align: center; font-size: 11px; col
 nav b { display: block; font-size: 18px; font-weight: 400; }
 nav .on { color: var(--ink); font-weight: 600; }
 .avviso { margin: 0 20px 12px; padding: 12px 14px; border-radius: 12px; background: #eddcd6; color: var(--red); font-size: 14px; }
-.avviso button { display: block; margin-top: 6px; text-decoration: underline; min-height: 32px; }
+.avviso button { display: block; margin-top: 2px; text-decoration: underline; min-height: 44px; }
 .empty { color: var(--mut); text-align: center; padding: 32px 12px; }
 
 /* mappa */
@@ -100,10 +100,10 @@ form { display: flex; flex-direction: column; }
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 [data-modo="anno"] .date, [data-modo="date"] .anno { display: none; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 4px; }
-.chips button { background: var(--bg); border: 1px solid var(--line); border-radius: 99px; padding: 4px 10px; font-size: 13px; }
+.chips button { min-height: 44px; background: var(--bg); border: 1px solid var(--line); border-radius: 99px; padding: 0 14px; font-size: 14px; }
 .chips .mut { color: var(--mut); }
 .seg { display: flex; background: var(--surf); border: 1px solid var(--line); border-radius: 10px; padding: 2px; margin-bottom: 8px; font-size: 13px; }
-.seg button { flex: 1; text-align: center; padding: 8px; border-radius: 8px; color: var(--mut); }
+.seg button { flex: 1; min-height: 44px; text-align: center; border-radius: 8px; color: var(--mut); }
 [data-modo="anno"] .seg button:first-child, [data-modo="date"] .seg button:last-child { background: var(--ink); color: var(--bg); }
 .err { color: var(--red); font-size: 13px; margin: 4px 0; }
 .err:empty { display: none; }
