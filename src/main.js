@@ -250,7 +250,12 @@ function apriViaggio(v) {
 }
 
 function apriMenu() {
-  const file = h("input", { type: "file", accept: ".json,application/json", hidden: true, onchange: importa });
+  const file = h("input", {
+    type: "file",
+    accept: ".txt,.json,text/plain,application/json",
+    hidden: true,
+    onchange: importa,
+  });
   pannello(t("menu"), t("chiudi"), [file], () =>
     lista([
       riga(
@@ -264,7 +269,7 @@ function apriMenu() {
 
 async function esporta() {
   try {
-    if (await store.condividi(JSON.stringify(d), `tandr-${store.oggi()}.json`)) {
+    if (await store.condividi(JSON.stringify(d), `tandr-${store.oggi()}.txt`)) {
       aggiorna((d) => ({ ...d, backup: store.oggi() }));
     }
   } catch (e) {
@@ -273,7 +278,7 @@ async function esporta() {
 }
 
 async function esportaGrezzo() {
-  if (!(await store.condividi(raw, `tandr-illeggibile-${store.oggi()}.json`))) return;
+  if (!(await store.condividi(raw, `tandr-illeggibile-${store.oggi()}.txt`))) return;
   store.sblocca();
   err = raw = null;
   render();

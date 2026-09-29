@@ -90,19 +90,21 @@ export function salva(d) {
 export const sblocca = () => (bloccato = false);
 
 // esportazione: condivisione di sistema se c'è, altrimenti download. false = annullata.
+// .txt perché Chrome su Android rifiuta i .json (NotAllowedError anche se canShare dice sì);
+// se un browser rifiuta comunque, si ripiega sul download.
 export async function condividi(testo, nome) {
-  const f = new File([testo], nome, { type: "application/json" });
+  const f = new File([testo], nome, { type: "text/plain" });
   if (navigator.canShare?.({ files: [f] })) {
     try {
       await navigator.share({ files: [f] });
+      return true;
     } catch (e) {
       if (e.name === "AbortError") return false;
-      throw e;
+      if (e.name !== "NotAllowedError") throw e;
     }
-  } else {
-    const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(f), download: nome });
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   }
+  const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(f), download: nome });
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   return true;
 }
